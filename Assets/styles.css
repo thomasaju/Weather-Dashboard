@@ -1,7 +1,11 @@
-header{
-    background-color: rgb(8, 9, 9);
+h1{
     color: azure;
 }
+h5{
+    color: gray;
+}
+
+
 
 .main-section{
     background-color: lightgrey;
