@@ -1,9 +1,8 @@
 
-var cityEl = document.querySelector("#cityName");
-var todaysWeather = document.querySelector("#todaysWeather");
-var searchButton = document.querySelector("#searchButton");
-var today = moment().format('L');
+var today = moment().format('LLL');
 var apiKey = "403d92c0f500944e93ced3dd4c0c88f8";
+var searchButton = document.querySelector("#searchButton");
+var cityName = document.querySelector("#cityName");
 
 
 function weatherDetails(cityName){
@@ -11,21 +10,24 @@ function weatherDetails(cityName){
 
     fetch(webUrl)
         .then(function (response){
-            todaysWeather.classList.remove("hidden");
             return response.json();
         })
         .then(function(data){
             console.log(data);
         })
 
+        $("#currentWeather").removeClass("hidden");
+        // $("p").removeClass("intro");
+        $("currentCityDetail").empty();
 
-
+        var icon = data.weather[0].icon;
+        console.log(icon);
 
 
 }
 
 searchButton.addEventListener("click", function(){
-    var searchCity = cityEl.value;
+    var searchCity = cityName.value;
     weatherDetails(searchCity);
 })
 
@@ -54,3 +56,53 @@ searchButton.addEventListener("click", function(){
 //         tableBody.appendChild(createTableRow);
 //       }
 //     });
+
+
+
+
+
+
+// {
+//     "coord": {
+//         "lon": 138.6,
+//         "lat": -34.9333
+//     },
+//     "weather": [
+//         {
+//             "id": 802,
+//             "main": "Clouds",
+//             "description": "scattered clouds",
+//             "icon": "03d"
+//         }
+//     ],
+//     "base": "stations",
+//     "main": {
+//         "temp": 286.09,
+//         "feels_like": 285.48,
+//         "temp_min": 284.3,
+//         "temp_max": 287.22,
+//         "pressure": 1020,
+//         "humidity": 78
+//     },
+//     "visibility": 10000,
+//     "wind": {
+//         "speed": 1.79,
+//         "deg": 7,
+//         "gust": 4.02
+//     },
+//     "clouds": {
+//         "all": 39
+//     },
+//     "dt": 1665784028,
+//     "sys": {
+//         "type": 2,
+//         "id": 2001763,
+//         "country": "AU",
+//         "sunrise": 1665777820,
+//         "sunset": 1665824339
+//     },
+//     "timezone": 37800,
+//     "id": 2078025,
+//     "name": "Adelaide",
+//     "cod": 200
+// }
