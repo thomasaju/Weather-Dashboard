@@ -46,14 +46,51 @@ function weatherDetails(cityName){
             $("#currentCityDetail").append(enteredCity);
 
             // for UltraViolet Index
-            // https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
+            // https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}-- needs subscription
 
             var latitude = data.coord.lat;
             var longitude = data.coord.lon;
-            var uvUrl = "https://api.openweathermap.org/data/3.0/onecall?lat="+ latitude + "&lon=" + longitude + "&appid=" + apiKey;
+            var uvUrl = "https://api.openweathermap.org/data/2.5/uvi?lat="+ latitude + "&lon=" + longitude + "&appid=" + apiKey;
             
             console.log(uvUrl); //it needs subscription
 
+
+            fetch(uvUrl)
+                .then(function (response){
+                    return response.json();
+                })
+                .then(function(data){
+                    console.log(data);
+                    var uvRate = data.value;
+                    console.log(uvRate);
+
+                    var uvPara = $(`
+                    <p>UV Index: 
+                        <span id="uvColor">${uvRate}</span>
+                    </p>
+                `);
+
+
+
+                    // const para = document.createElement("p");
+                    // const node = document.createTextNode("UV.");
+                    // $("p").append($(`<span id="uvColor"> uvRate </span>`));
+                    // para.appendChild(node);
+
+                    // var uvRatePara = ("<p> UV= <span id= uvColor> "uvRate" </span> </p>");
+
+             $("#currentCityDetail").append(uvPara);
+             fiveDayForecast(latitude,longitude);
+
+                    if(uvRate >8){
+                        $("#uvColor").css("background-color","#DC143C")
+                    } else if (uvRate>4 && uvRate < 8){
+                        $("#uvColor").css("background-color","#FF7F50")
+                    }else {
+                        $("#uvColor").css("background-color","#FFF8DC")
+                    }
+            
+                })
 
         // var enteredCity = $(`<h2 id="enteredCity">
         //         ${data.name} ${today} <img src="${iconPicture}" alt="${data.weather[0].description}" />
@@ -72,9 +109,46 @@ function weatherDetails(cityName){
         // ( ".inner" ).append( "<p>Test</p>" );
 
         }) 
-        
+}
+
+function fiveDayForecast(latitude,longitude){
+
+    // api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
+
+    var fiveDayUrl = "https://api.openweathermap.org/data/2.5/forecast?lat="+ latitude+ "&lon=" + longitude + "&appid=" + apiKey;
+    console.log(fiveDayUrl);
+
+    fetch(fiveDayUrl)
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(data){
+        console.log(data);
+    })
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
 
 }
+
+
+
+
+
+
+
+
 
 searchButton.addEventListener("click", function(){
     var searchCity = cityName.value;
