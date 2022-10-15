@@ -20,9 +20,9 @@ function weatherDetails(cityName){
         // $("p").removeClass("intro");
         $("currentCityDetail").empty();
 
-        var icon = data.weather[0].icon;
-        console.log(icon);
-        var iconPicture = " http://openweathermap.org/img/wn/" + icon + "@2x.png";
+        var iconId = data.weather[0].icon;
+        console.log(iconId);
+        var iconPicture = "http://openweathermap.org/img/wn/10d@2x.png"
 
         // $("#currentWeather").append(iconPicture);
              var name = data.name;
@@ -33,8 +33,22 @@ function weatherDetails(cityName){
              console.log(description);
              console.log(name); 
 
+             var enteredCity = $(`<h2 id="currentCity">
+             ${data.name} ${today} <img src="${iconPicture}" alt="${data.weather[0].description}" />
+         </h2>
+         <p>Temperature: ${data.main.temp} °F</p>
+         <p>Humidity: ${data.main.humidity}\%</p>
+         <p>Wind Speed: ${data.wind.speed} MPH</p>
+     `);
+            
 
-             $("#currentCityDetail").append("<h2> Hello</h2>")
+            $("#currentCityDetail").removeClass("hidden");
+            $("#currentCityDetail").append(enteredCity);
+
+
+
+
+
 
         // var enteredCity = $(`<h2 id="enteredCity">
         //         ${data.name} ${today} <img src="${iconPicture}" alt="${data.weather[0].description}" />
