@@ -34,7 +34,7 @@ function weatherDetails(cityName){
              console.log(name); 
 
              var enteredCity = $(`<h2 id="currentCity">
-             ${name} ${today} <img src="${iconPicture}" alt="${description}" />
+             ${name} ${today} <img src="${iconPicture}" alt="" />
          </h2>
          <p>Temperature: ${temp} Degree Celcius</p>
          <p>Humidity: ${humidity}\%</p>
@@ -45,9 +45,14 @@ function weatherDetails(cityName){
             $("#currentCityDetail").removeClass("hidden");
             $("#currentCityDetail").append(enteredCity);
 
+            // for UltraViolet Index
+            // https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
 
-
-
+            var latitude = data.coord.lat;
+            var longitude = data.coord.lon;
+            var uvUrl = "https://api.openweathermap.org/data/3.0/onecall?lat="+ latitude + "&lon=" + longitude + "&appid=" + apiKey;
+            
+            console.log(uvUrl); //it needs subscription
 
 
         // var enteredCity = $(`<h2 id="enteredCity">
@@ -66,11 +71,7 @@ function weatherDetails(cityName){
 
         // ( ".inner" ).append( "<p>Test</p>" );
 
-        })
-
-        
-
-        
+        }) 
         
 
 }
