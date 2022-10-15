@@ -3,6 +3,7 @@ var today = moment().format('LLL');
 var apiKey = "403d92c0f500944e93ced3dd4c0c88f8";
 var searchButton = document.querySelector("#searchButton");
 var cityName = document.querySelector("#cityName");
+var currentCityDetail = document.querySelector("#currentCityDetail");
 
 
 function weatherDetails(cityName){
@@ -14,7 +15,6 @@ function weatherDetails(cityName){
         })
         .then(function(data){
             console.log(data);
-        })
 
         $("#currentWeather").removeClass("hidden");
         // $("p").removeClass("intro");
@@ -22,7 +22,42 @@ function weatherDetails(cityName){
 
         var icon = data.weather[0].icon;
         console.log(icon);
+        var iconPicture = " http://openweathermap.org/img/wn/" + icon + "@2x.png";
 
+        // $("#currentWeather").append(iconPicture);
+             var name = data.name;
+             var description = data.weather[0].description;
+             var temp = data.main.temp;
+             var wind = data.wind.speed;
+             var humidity = data.main.humidity;
+             console.log(description);
+             console.log(name); 
+
+
+             $("#currentCityDetail").append("<h2> Hello</h2>")
+
+        // var enteredCity = $(`<h2 id="enteredCity">
+        //         ${data.name} ${today} <img src="${iconPicture}" alt="${data.weather[0].description}" />
+        //     </h2>
+        //     <p>Temperature: ${data.main.temp} °F</p>
+        //     <p>Humidity: ${data.main.humidity}\%</p>
+        //     <p>Wind Speed: ${data.wind.speed} MPH</p>
+        //     console.log(enteredCity);
+        // `);
+
+            // console.log(enteredCity);
+
+        // $("#currentCityDetail").append(enteredCity);
+
+
+        // ( ".inner" ).append( "<p>Test</p>" );
+
+        })
+
+        
+
+        
+        
 
 }
 
