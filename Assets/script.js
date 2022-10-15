@@ -1,5 +1,5 @@
 
-var today = moment().format('LLL');
+var today = moment().format('L');
 var apiKey = "403d92c0f500944e93ced3dd4c0c88f8";
 var searchButton = document.querySelector("#searchButton");
 var cityName = document.querySelector("#cityName");
@@ -7,7 +7,7 @@ var currentCityDetail = document.querySelector("#currentCityDetail");
 
 
 function weatherDetails(cityName){
-    var webUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + apiKey;
+    var webUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + apiKey + "&units=metric";
 
     fetch(webUrl)
         .then(function (response){
@@ -22,7 +22,7 @@ function weatherDetails(cityName){
 
         var iconId = data.weather[0].icon;
         console.log(iconId);
-        var iconPicture = "http://openweathermap.org/img/wn/10d@2x.png"
+        var iconPicture = "http://openweathermap.org/img/wn/"+ iconId + "@2x.png"
 
         // $("#currentWeather").append(iconPicture);
              var name = data.name;
@@ -34,11 +34,11 @@ function weatherDetails(cityName){
              console.log(name); 
 
              var enteredCity = $(`<h2 id="currentCity">
-             ${data.name} ${today} <img src="${iconPicture}" alt="${data.weather[0].description}" />
+             ${name} ${today} <img src="${iconPicture}" alt="${description}" />
          </h2>
-         <p>Temperature: ${data.main.temp} °F</p>
-         <p>Humidity: ${data.main.humidity}\%</p>
-         <p>Wind Speed: ${data.wind.speed} MPH</p>
+         <p>Temperature: ${temp} Degree Celcius</p>
+         <p>Humidity: ${humidity}\%</p>
+         <p>Wind Speed: ${wind} miles per hour</p>
      `);
             
 
