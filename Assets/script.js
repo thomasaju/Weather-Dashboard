@@ -6,8 +6,19 @@ var cityName = document.querySelector("#cityName");
 var currentCityDetail = document.querySelector("#currentCityDetail");
 
 
+
 function weatherDetails(cityName){
     var webUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + apiKey + "&units=metric";
+
+
+
+
+
+
+
+
+
+
 
     fetch(webUrl)
         .then(function (response){
@@ -47,12 +58,17 @@ function weatherDetails(cityName){
 
             // for UltraViolet Index
             // https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}-- needs subscription
+            
 
             var latitude = data.coord.lat;
             var longitude = data.coord.lon;
             var uvUrl = "https://api.openweathermap.org/data/2.5/uvi?lat="+ latitude + "&lon=" + longitude + "&appid=" + apiKey;
             
             console.log(uvUrl); //it needs subscription
+
+            var forecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&exclude=current,minutely,hourly,alerts&appid=${apiKey}`;
+
+            // console.log(forecastUrl);
 
 
             fetch(uvUrl)
@@ -72,15 +88,9 @@ function weatherDetails(cityName){
 
 
 
-                    // const para = document.createElement("p");
-                    // const node = document.createTextNode("UV.");
-                    // $("p").append($(`<span id="uvColor"> uvRate </span>`));
-                    // para.appendChild(node);
-
-                    // var uvRatePara = ("<p> UV= <span id= uvColor> "uvRate" </span> </p>");
 
              $("#currentCityDetail").append(uvPara);
-             fiveDayForecast(latitude,longitude);
+            //  fiveDayForecast(latitude,longitude);
 
                     if(uvRate >8){
                         $("#uvColor").css("background-color","#DC143C")
@@ -92,66 +102,27 @@ function weatherDetails(cityName){
             
                 })
 
-        // var enteredCity = $(`<h2 id="enteredCity">
-        //         ${data.name} ${today} <img src="${iconPicture}" alt="${data.weather[0].description}" />
-        //     </h2>
-        //     <p>Temperature: ${data.main.temp} °F</p>
-        //     <p>Humidity: ${data.main.humidity}\%</p>
-        //     <p>Wind Speed: ${data.wind.speed} MPH</p>
-        //     console.log(enteredCity);
-        // `);
-
-            // console.log(enteredCity);
-
-        // $("#currentCityDetail").append(enteredCity);
-
-
-        // ( ".inner" ).append( "<p>Test</p>" );
 
         }) 
 }
 
+// console.log(latitude);
+
+//how to get variables in line 63 and 64 to here..?
 function fiveDayForecast(latitude,longitude){
 
-    // api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
+    var forecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&exclude=current,minutely,hourly,alerts&appid=${apiKey}`;
 
-    var fiveDayUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&exclude=current,minutely,hourly,alerts&appid=${apiKey}`;
-
-
-    console.log(fiveDayUrl);
-
-    fetch(fiveDayUrl)
-    .then(function(response){
-        return response.json();
-    })
-    .then(function(data){
-        console.log(data);
-
-        
-
-
-
-
-
-
-
-    })
-
-
-
-
-
-
-
-
-
+    console.log(forecastUrl);
     
 
 
-
-
-
 }
+
+
+  
+
+
 
 
 
@@ -164,7 +135,15 @@ function fiveDayForecast(latitude,longitude){
 searchButton.addEventListener("click", function(){
     var searchCity = cityName.value;
     weatherDetails(searchCity);
+    fiveDayForecast()
 })
+
+
+
+
+
+
+
 
 
 // fetch(requestUrl)
