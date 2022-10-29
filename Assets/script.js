@@ -13,13 +13,6 @@ function weatherDetails(cityName){
 
 
 
-
-
-
-
-
-
-
     fetch(webUrl)
         .then(function (response){
             return response.json();
@@ -62,6 +55,7 @@ function weatherDetails(cityName){
 
             var latitude = data.coord.lat;
             var longitude = data.coord.lon;
+            console.log(latitude);
             var uvUrl = "https://api.openweathermap.org/data/2.5/uvi?lat="+ latitude + "&lon=" + longitude + "&appid=" + apiKey;
             
             console.log(uvUrl); //it needs subscription
@@ -102,6 +96,9 @@ function weatherDetails(cityName){
             
                 })
 
+console.log(latitude);
+
+
 
         }) 
 }
@@ -109,12 +106,14 @@ function weatherDetails(cityName){
 // console.log(latitude);
 
 //how to get variables in line 63 and 64 to here..?
-function fiveDayForecast(latitude,longitude){
+function fiveDayForecast(lat,lon){
+// cityID = cityName.value
+// console.log(cityID);
 
-    var forecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&exclude=current,minutely,hourly,alerts&appid=${apiKey}`;
 
-    console.log(forecastUrl);
+
     
+
 
 
 }
