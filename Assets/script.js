@@ -7,6 +7,7 @@ var currentCityDetail = document.querySelector("#currentCityDetail");
 
 
 
+
 function weatherDetails(cityName){
     var webUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + apiKey + "&units=metric";
 
@@ -206,13 +207,17 @@ function weatherDetails(cityName){
    
 
 
+$("#searchButton").on("click", function(event){
+    event.preventDefault();
 
+})
 
 
 
 searchButton.addEventListener("click", function(){
     var searchCity = cityName.value;
     weatherDetails(searchCity);
+
     
 })
 
