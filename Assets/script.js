@@ -4,7 +4,7 @@ var apiKey = "47f166773e351368285402b79068ea73";
 var searchButton = document.querySelector("#searchButton");
 var cityName = document.querySelector("#cityName");
 var currentCityDetail = document.querySelector("#currentCityDetail");
-
+var searchList = [];
 
 
 
@@ -209,17 +209,50 @@ function weatherDetails(cityName){
 
 $("#searchButton").on("click", function(event){
     event.preventDefault();
-
-})
-
-
-
-searchButton.addEventListener("click", function(){
     var searchCity = cityName.value;
     weatherDetails(searchCity);
 
-    
+if(!searchList.includes(searchCity)){
+    searchList.push(searchCity);
+    var cityList = $(`
+    <li class="list">${searchCity}</li>
+    `);
+    $("#history").append(cityList);
+}
+
+localStorage.setItem("name", JSON.stringify(searchList));
+console.log(searchList);
+
+
+});
+
+$(document).on("click", ".list", function(){
+    var currCity = $(this).text();
+    weatherDetails(currCity);
 })
+
+
+$(document).ready(function(){
+    var searchListArray = JSON.parse(localStorage.getItem("name"));
+    
+    if (searchListArray !== null) {
+       var lastIndex = searchListArray.length - 1;
+       var lastCity = searchListArray[lastIndex];
+       weatherDetails(lastCity);
+    }
+
+
+
+})
+
+
+
+// searchButton.addEventListener("click", function(){
+//     var searchCity = cityName.value;
+//     weatherDetails(searchCity);
+
+    
+// })
 
 
 
