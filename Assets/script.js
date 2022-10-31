@@ -215,7 +215,7 @@ $("#searchButton").on("click", function(event){
 if(!searchList.includes(searchCity)){
     searchList.push(searchCity);
     var cityList = $(`
-    <li class="list">${searchCity}</li>
+    <li class="list-group-item">${searchCity}</li>
     `);
     $("#history").append(cityList);
 }
