@@ -128,7 +128,7 @@ function weatherDetails(cityName){
 
     var paraCard = $(`
                 <div class="pl-3">
-                    <div class="card pl-3 pt-3 mb-3 bg-primary text-light" style="width: 12rem;>
+                    <div class="card pl-3 pt-3 mb-3 bg-primary text-white" style="width: 12em;>
                         <div class="card-body">
                             <h5>${currDate}</h5>
                             <p>${iconURL}</p>

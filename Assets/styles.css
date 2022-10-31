@@ -1,19 +1,46 @@
 h1{
     color: azure;
+    font-size: 45px;
 }
 h5{
     color: gray;
 }
 
+#currentCityDetail,
+#uvColor,
+li {
+    color: #4D4F53;
+}
 
 
-.main-section{
+
+
+.city{
+    height: 60vh;
+    
+}
+.card{
+    border: 1px solid black;
+    
+}
+
+.history{
+    background-color: aqua;
+}
+.forecast{
+    justify-content: center;
+}
+
+
+
+
+/* .main-section{
     background-color: lightgrey;
     height: 100px;
     width: 25rem;
     margin: 20px 90px 30px 0px ;
     
-}
+} */
 
 .hidden{
     display: none;
@@ -24,6 +51,3 @@ h5{
     color: black;
 }
 
-.list{
-    
-}
