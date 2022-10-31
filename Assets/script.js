@@ -228,7 +228,7 @@ console.log(searchList);
 
 });
 
-$(document).on("click", ".list", function(){
+$(document).on("click", ".list-group-item", function(){
     var currCity = $(this).text();
     weatherDetails(currCity);
 })
