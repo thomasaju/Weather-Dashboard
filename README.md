@@ -40,6 +40,6 @@ https://user-images.githubusercontent.com/109736323/199008261-ebd40c78-2ae2-473e
 <img width="1409" alt="Screen Shot 2022-10-31 at 10 56 43 pm" src="https://user-images.githubusercontent.com/109736323/199008146-848275e9-a4c0-41ef-bb00-06dc3c783538.png">
 
 Websites
-Github: https://github.com/thomasaju/Weather-Dashboard
-Deployed: 
+- Github: https://github.com/thomasaju/Weather-Dashboard
+- Deployed: 
 
