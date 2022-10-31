@@ -41,5 +41,5 @@ https://user-images.githubusercontent.com/109736323/199008261-ebd40c78-2ae2-473e
 
 Websites
 - Github: https://github.com/thomasaju/Weather-Dashboard
-- Deployed: 
+- Deployed: https://thomasaju.github.io/Weather-Dashboard/
 
