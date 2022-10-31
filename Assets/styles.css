@@ -1,3 +1,7 @@
+body{
+    width: 100%vh;
+}
+
 h1{
     color: azure;
     font-size: 45px;
@@ -6,30 +10,46 @@ h5{
     color: gray;
 }
 
-#currentCityDetail,
-#uvColor,
-li {
+#currentCityDetail {
     color: #4D4F53;
+    /* position: relative;
+    left:379px; 
+    top:-364px; */
+    display: inline-block;
+    background-color: blanchedalmond;
+    width: 100%;
+    height: 70vh;
 }
 
 
 
 
 .city{
-    height: 60vh;
+    height: 70vh;
     
 }
 .card{
     border: 1px solid black;
+    display: inline-block;
+
     
 }
 
-.history{
+/* .history{
     background-color: aqua;
-}
-.forecast{
-    justify-content: center;
-}
+} */
+/* #forecast{
+    
+display: flexbox;
+flex-wrap: wrap;  
+flex-direction: column;  
+    
+} */
+/* .future{
+    position: absolute;
+    top: 430px;
+    right: -370px;
+} */
 
 
 
@@ -48,6 +68,46 @@ li {
 #uvColor{
     border: 1px solid;
     border-radius: 5px;
-    color: black;
+    color: #4D4F53;
 }
 
+   
+
+
+/* .butn {
+    background: #3498db;
+    background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+    background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+    background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+    background-image: -o-linear-gradient(top, #3498db, #2980b9);
+    background-image: linear-gradient(to bottom, #3498db, #2980b9);
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    border-top-right-radius: 29px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 17px;
+    padding: 3px 9px 5px 11px;
+    text-decoration: none;
+    left: 10px;
+  }
+  
+  .butn:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+  } */
+
+
+
+/* @media screen and (max-width: 500px) {
+  
+    #currentCityDetail {
+        width: 100%;
+    }
+} */

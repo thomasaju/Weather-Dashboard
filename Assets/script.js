@@ -23,7 +23,7 @@ function weatherDetails(cityName){
 
         $("#currentWeather").removeClass("hidden");
         // $("p").removeClass("intro");
-        $("currentCityDetail").empty();
+        $("#currentCityDetail").empty();
 
         var iconId = data.weather[0].icon;
         console.log(iconId);
@@ -127,8 +127,9 @@ function weatherDetails(cityName){
 
 
     var paraCard = $(`
-                <div class="pl-3">
-                    <div class="card pl-3 pt-3 mb-3 bg-primary text-white" style="width: 12em;>
+                \
+                <div class="row">
+                   <div class="card mb-1 bg-primary text-white" style="width: 12em;>
                         <div class="card-body">
                             <h5>${currDate}</h5>
                             <p>${iconURL}</p>
@@ -137,6 +138,7 @@ function weatherDetails(cityName){
                         </div>
                     </div>
                 <div>
+                
             `);
 
 
