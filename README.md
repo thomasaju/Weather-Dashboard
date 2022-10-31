@@ -16,14 +16,18 @@ The motivation was to make a user-friendly experience. It solved the problem of 
 
 # Features
 
-Boostsrap CSS Framework
-jQuery
-Openweather Api
-HTML
-Javascript
+- Boostsrap CSS Framework
+- jQuery
+- Openweather Api
+- HTML
+- Javascript
 
 
 # Demo
+
+
+
+https://user-images.githubusercontent.com/109736323/199008261-ebd40c78-2ae2-473e-88ae-98b621d4c1d8.mp4
 
 
 
@@ -33,6 +37,7 @@ Javascript
 
 
 # Screenshot
+<img width="1409" alt="Screen Shot 2022-10-31 at 10 56 43 pm" src="https://user-images.githubusercontent.com/109736323/199008146-848275e9-a4c0-41ef-bb00-06dc3c783538.png">
 
 
 
