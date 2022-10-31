@@ -7,7 +7,7 @@ h1{
     font-size: 45px;
 }
 h5{
-    color: gray;
+    color: rgb(253, 243, 243);
 }
 
 li{
@@ -62,7 +62,7 @@ flex-direction: column;
 #uvColor{
     border: 1px solid;
     border-radius: 5px;
-    color: #4D4F53;
+    color: black;
 }
 
    
