@@ -27,7 +27,7 @@ function weatherDetails(cityName){
 
         var iconId = data.weather[0].icon;
         console.log(iconId);
-        var iconPicture = "http://openweathermap.org/img/wn/"+ iconId + "@2x.png"
+        var iconPicture = "http://openweathermap.org/img/w/"+ iconId + ".png"
 
         // $("#currentWeather").append(iconPicture);
              var name = data.name;
@@ -127,9 +127,9 @@ function weatherDetails(cityName){
 
 
     var paraCard = $(`
-                \
-                <div class="row">
-                   <div class="card mb-1 bg-primary text-white" style="width: 12em;>
+                
+                <div class="pl-3">
+                   <div class="card pl-3 pt-3 mb-3 bg-primary text-light" style="width: 12em;>
                         <div class="card-body">
                             <h5>${currDate}</h5>
                             <p>${iconURL}</p>
